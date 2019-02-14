@@ -4,7 +4,8 @@ function main() {
             2:"人類有20%機率繳械三秒"
         },
         "戰士": {
-            2:"有軍戰士護甲+6"
+            3:"有軍戰士護甲+6",
+            6:"有軍戰士護甲+8(14)"
         }
     }
     var data = {
@@ -26,9 +27,12 @@ function main() {
     for (property in properties) {
         
         var lineNode = document.createElement("div");
+        lineNode.classList.add("lineNode");
         var abilityNode = document.createElement("div");
         for(item in properties[property]) {
-            abilityNode.innerHTML += '('+item+')'+properties[property][item];
+            var subNode = document.createElement("div");
+            subNode.innerHTML = '('+item+')'+properties[property][item];
+            abilityNode.appendChild(subNode);
         }
         var propertyNode = document.createElement("div");
         propertyNode.innerHTML = property;
