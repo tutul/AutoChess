@@ -1,10 +1,18 @@
 function main() {
+    var totalNumber = 0
     var mapping = {
         "orange":1,
         "purple":2,
         "blue":3,
         "green":4,
         "white":5
+    }
+    var colorMap = {
+        "orange":"rgba(207,101,2)",
+        "purple":"purple",
+        "blue":"blue",
+        "green":"green",
+        "white":"black"
     }
     var properties = {
         "戰士": {
@@ -321,54 +329,60 @@ function main() {
         }
     }
     function clickEvent(e){
-                    var nodeName = e.target.getAttribute("name")
-                    if(nodeName && !e.target.classList.contains("roleNode-active")) {
-                        var nodelist = document.getElementsByName(nodeName) || [];
-                        for(let i = 0, length1 = nodelist.length; i < length1; i++){
-                            nodelist[i].classList.add("roleNode-active");
-                        }
-                    } else if (nodeName && e.target.classList.contains("roleNode-active")) {
-                        var nodelist = document.getElementsByName(nodeName) || [];
-                        for(let i = 0, length1 = nodelist.length; i < length1; i++){
-                            nodelist[i].classList.remove("roleNode-active");
-                        }
-                    }
-                    if(nodeName) {
-                        let propertyList = data[nodeName].type || [];
-                        for(property in propertyList) {
-                            let roleContainer = document.getElementById(propertyList[property]);
-                            if(!roleContainer) {
-                                continue;
-                            }
-                            let rolelist = roleContainer.getElementsByTagName('div') || [];
-                            let number = 0;
-                            for (let i = 0, length1 = rolelist.length; i < length1; i++) {
-                                if(rolelist[i].classList.contains("roleNode-active")) {
-                                    number++;
-                                }
-                            }
-                            let lineContainer = document.getElementById(propertyList[property]+'_line');
-                            lineContainer.style.order = 10-number;
-                            for(let i = 1; i <= number; i++){
-                                let ability = document.getElementById(propertyList[property]+'_'+i) || null;
-                                if(ability) {
-                                    ability.classList.add("roleNode-active");
-                                    ability.classList.remove("display-None");
-                                }
-                            }
+        var nodeName = e.target.getAttribute("name");
+        var numberNone = document.getElementById("totalNumber");
 
-                            for(let i = number+1 ; i <= 10; i++){
-                                let ability = document.getElementById(propertyList[property]+'_'+i) || null;
-                                if(ability) {
-                                    ability.classList.add("display-None");
-                                    ability.classList.remove("roleNode-active");
-                                }
-                            }
-                            
-                        }
-                    }
-
+        if(nodeName && !e.target.classList.contains("roleNode-active")) {
+            var nodelist = document.getElementsByName(nodeName) || [];
+            for(let i = 0, length1 = nodelist.length; i < length1; i++){
+                nodelist[i].classList.add("roleNode-active");
+            }
+            totalNumber++;
+            numberNone.innerHTML = "Total: " + totalNumber.toString();
+        } else if (nodeName && e.target.classList.contains("roleNode-active")) {
+            var nodelist = document.getElementsByName(nodeName) || [];
+            for(let i = 0, length1 = nodelist.length; i < length1; i++){
+                nodelist[i].classList.remove("roleNode-active");
+            }
+            totalNumber--;
+            numberNone.innerHTML = "Total: " + totalNumber.toString();
+        }
+        if(nodeName) {
+            let propertyList = data[nodeName].type || [];
+            for(property in propertyList) {
+                let roleContainer = document.getElementById(propertyList[property]);
+                if(!roleContainer) {
+                    continue;
                 }
+                let rolelist = roleContainer.getElementsByTagName('div') || [];
+                let number = 0;
+                for (let i = 0, length1 = rolelist.length; i < length1; i++) {
+                    if(rolelist[i].classList.contains("roleNode-active")) {
+                        number++;
+                    }
+                }
+                let lineContainer = document.getElementById(propertyList[property]+'_line');
+                lineContainer.style.order = 10-number;
+                for(let i = 1; i <= number; i++){
+                    let ability = document.getElementById(propertyList[property]+'_'+i) || null;
+                    if(ability) {
+                        ability.classList.add("roleNode-active");
+                        //ability.classList.remove("display-None");
+                    }
+                }
+
+                for(let i = number+1 ; i <= 10; i++){
+                    let ability = document.getElementById(propertyList[property]+'_'+i) || null;
+                    if(ability) {
+                        ability.classList.remove("roleNode-active");
+                        //ability.classList.add("display-None");
+                    }
+                }
+                
+            }
+        }
+
+    }
     var allRoles = document.getElementById("allRoles");
     for(item in data) {
         var subNode = document.createElement("div");
@@ -376,15 +390,20 @@ function main() {
         subNode.setAttribute('name', item);
         subNode.classList.add("showNodes");
         subNode.style.order = mapping[data[item].level];
-        subNode.style.color = (data[item].level == 'white')? 'black' : data[item].level;
+        subNode.style.color = colorMap[data[item].level];
         subNode.innerHTML = item;
         subNode.addEventListener('click', clickEvent);
         allRoles.appendChild(subNode);
     }
+    var numberNode = document.createElement("div");
+    numberNode.innerHTML = "Total: 0";
+    numberNode.style.order = "999";
+    numberNode.setAttribute('id', "totalNumber");
+    allRoles.appendChild(numberNode);
+
 
     var mainNode = document.getElementById("mainContainer");
     for (property in properties) {
-        
         var lineNode = document.createElement("div");
         lineNode.setAttribute('id', property+'_line');
         lineNode.classList.add("lineNode");
@@ -395,7 +414,7 @@ function main() {
             subNode.setAttribute('id', property+'_'+item);
             subNode.setAttribute('name', property);
             subNode.classList.add("abilityNode");
-            subNode.classList.add("display-None");
+            //subNode.classList.add("display-None");
             subNode.innerHTML = '('+item+')'+properties[property][item];
             abilityNode.appendChild(subNode);
         }
@@ -413,7 +432,7 @@ function main() {
                 //subNode.setAttribute('id', property+' '+item);
                 subNode.setAttribute('name', item);
                 subNode.style.order = mapping[data[item].level];
-                subNode.style.color = (data[item].level == 'white')? 'black' : data[item].level;
+                subNode.style.color = colorMap[data[item].level];
                 subNode.classList.add("roleNode");
                 subNode.innerHTML = item;
 

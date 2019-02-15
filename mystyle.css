@@ -1,12 +1,13 @@
 #mainContainer {
 	display: flex;
 	flex-direction: column;
-
 }
 #allRoles {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
+	align-items: center;
+    font-weight: 900;
 }
 .showNodes {
 	border-style: outset;
@@ -17,6 +18,10 @@
     border-radius: 5px;
     cursor: pointer;
 }
+#totalNumber {
+    margin-left: 10px;
+    font-weight: 900;
+}
 .lineNode {
     display: flex;
     align-items: center;
@@ -26,19 +31,23 @@
     border-color: teal;
     /*padding: 1px;*/
     font-size: 12px;
+    font-weight: 900;
     order:10;
 }
 .abilityContainer {
+	display: flex;
+	flex-direction: row;
 	order: 5;
 }
 .abilityNode {
-	width: 200px;
+	width: 210px;
 	border-style: solid;
     border-width: 1px;
     border-color: teal;
     /*margin: 5px;*/
     /*padding: 3px;*/
     border-radius: 5px;
+    margin-right: 3px;
     
 }
 .propertyNode {
@@ -56,6 +65,7 @@
     display: flex;
     align-items: center;
     order: 3;
+    width: 47%
 }
 .roleNode {
 	border-style: outset;
@@ -67,7 +77,7 @@
     cursor: pointer;
 }
 .roleNode-active {
-	background: rgba(220, 104, 75, 0.6);
+	background: rgba(220, 104, 75, 0.4);
 }
 
 .display-None {
