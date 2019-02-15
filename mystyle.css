@@ -1,3 +1,22 @@
+#mainContainer {
+	display: flex;
+	flex-direction: column;
+
+}
+#allRoles {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+.showNodes {
+	border-style: outset;
+    border-width: 3px;
+    border-color: teal;
+    margin: 5px;
+    padding: 3px;
+    border-radius: 5px;
+    cursor: pointer;
+}
 .lineNode {
     display: flex;
     align-items: center;
@@ -5,8 +24,9 @@
  	border-style: solid;
     border-width: 1px;
     border-color: teal;
-    padding: 1px;
+    /*padding: 1px;*/
     font-size: 12px;
+    order:10;
 }
 .abilityContainer {
 	order: 5;
@@ -28,7 +48,7 @@
     margin: 1px 15px;
     padding: 1px;
     border-radius: 5px;
-    width: 45px;
+    width: 60px;
     text-align: center;
     order: 1;
 }

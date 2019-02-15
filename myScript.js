@@ -1,4 +1,11 @@
 function main() {
+    var mapping = {
+        "orange":1,
+        "purple":2,
+        "blue":3,
+        "green":4,
+        "white":5
+    }
     var properties = {
         "戰士": {
             3:"有軍戰士護甲+6",
@@ -313,39 +320,7 @@ function main() {
             "level": "orange"
         }
     }
-    var mainNode = document.getElementById("mainContainer");
-    for (property in properties) {
-        
-        var lineNode = document.createElement("div");
-        lineNode.classList.add("lineNode");
-        var abilityNode = document.createElement("div");
-        abilityNode.classList.add("abilityContainer");
-        for(item in properties[property]) {
-            var subNode = document.createElement("div");
-            subNode.setAttribute('id', property+'_'+item);
-            subNode.setAttribute('name', property);
-            subNode.classList.add("abilityNode");
-            subNode.classList.add("display-None");
-            subNode.innerHTML = '('+item+')'+properties[property][item];
-            abilityNode.appendChild(subNode);
-        }
-
-        var propertyNode = document.createElement("div");
-        propertyNode.classList.add("propertyNode");
-        propertyNode.innerHTML = property;
-
-        var roleNode = document.createElement("div");
-        roleNode.setAttribute('id', property);
-        roleNode.classList.add("roleContainer");
-        for(item in data) {
-            if(data[item]['type'].includes(property)) {
-                var subNode = document.createElement("div");
-                //subNode.setAttribute('id', property+' '+item);
-                subNode.setAttribute('name', item);
-                subNode.classList.add("roleNode");
-                subNode.innerHTML = item;
-
-                subNode.addEventListener('click', function(e){
+    function clickEvent(e){
                     var nodeName = e.target.getAttribute("name")
                     if(nodeName && !e.target.classList.contains("roleNode-active")) {
                         var nodelist = document.getElementsByName(nodeName) || [];
@@ -372,7 +347,8 @@ function main() {
                                     number++;
                                 }
                             }
-                            
+                            let lineContainer = document.getElementById(propertyList[property]+'_line');
+                            lineContainer.style.order = 10-number;
                             for(let i = 1; i <= number; i++){
                                 let ability = document.getElementById(propertyList[property]+'_'+i) || null;
                                 if(ability) {
@@ -392,7 +368,56 @@ function main() {
                         }
                     }
 
-                });
+                }
+    var allRoles = document.getElementById("allRoles");
+    for(item in data) {
+        var subNode = document.createElement("div");
+        //subNode.setAttribute('id', property+' '+item);
+        subNode.setAttribute('name', item);
+        subNode.classList.add("showNodes");
+        subNode.style.order = mapping[data[item].level];
+        subNode.style.color = (data[item].level == 'white')? 'black' : data[item].level;
+        subNode.innerHTML = item;
+        subNode.addEventListener('click', clickEvent);
+        allRoles.appendChild(subNode);
+    }
+
+    var mainNode = document.getElementById("mainContainer");
+    for (property in properties) {
+        
+        var lineNode = document.createElement("div");
+        lineNode.setAttribute('id', property+'_line');
+        lineNode.classList.add("lineNode");
+        var abilityNode = document.createElement("div");
+        abilityNode.classList.add("abilityContainer");
+        for(item in properties[property]) {
+            var subNode = document.createElement("div");
+            subNode.setAttribute('id', property+'_'+item);
+            subNode.setAttribute('name', property);
+            subNode.classList.add("abilityNode");
+            subNode.classList.add("display-None");
+            subNode.innerHTML = '('+item+')'+properties[property][item];
+            abilityNode.appendChild(subNode);
+        }
+
+        var propertyNode = document.createElement("div");
+        propertyNode.classList.add("propertyNode");
+        propertyNode.innerHTML = property;
+
+        var roleNode = document.createElement("div");
+        roleNode.setAttribute('id', property);
+        roleNode.classList.add("roleContainer");
+        for(item in data) {
+            if(data[item]['type'].includes(property)) {
+                var subNode = document.createElement("div");
+                //subNode.setAttribute('id', property+' '+item);
+                subNode.setAttribute('name', item);
+                subNode.style.order = mapping[data[item].level];
+                subNode.style.color = (data[item].level == 'white')? 'black' : data[item].level;
+                subNode.classList.add("roleNode");
+                subNode.innerHTML = item;
+
+                subNode.addEventListener('click', clickEvent);
                 roleNode.appendChild(subNode);
             }
         }
