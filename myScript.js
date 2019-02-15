@@ -104,6 +104,213 @@ function main() {
         "狼人": {
             "type": ["野獸","戰士","人類"],
             "level": "blue"
+        },
+        "斧王": {
+            "type": ["獸人","戰士"],
+            "level": "white"
+        },
+        "劍聖": {
+            "type": ["獸人","戰士"],
+            "level": "green"
+        },
+        "魚人守衛": {
+            "type": ["娜迦","戰士"],
+            "level": "green"
+        },
+        "巨魔戰將": {
+            "type": ["巨魔","戰士"],
+            "level": "purple"
+        },
+        "末日使者": {
+            "type": ["惡魔","戰士"],
+            "level": "purple"
+        },
+        "小小": {
+            "type": ["元素","戰士"],
+            "level": "white"
+        },
+        "精靈龍": {
+            "type": ["精靈","龍","法師"],
+            "level": "green"
+        },
+        "冰晶室女": {
+            "type": ["人類","法師"],
+            "level": "green"
+        },
+        "秀逗魔法師": {
+            "type": ["人類","法師"],
+            "level": "blue"
+        },
+        "光之守衛": {
+            "type": ["人類","法師"],
+            "level": "purple"
+        },
+        "巫妖": {
+            "type": ["亡靈","法師"],
+            "level": "orange"
+        },
+        "閃電幽魂": {
+            "type": ["元素","法師"],
+            "level": "blue"
+        },
+        "食人魔魔法師": {
+            "type": ["食人魔","法師"],
+            "level": "white"
+        },
+        "幻影刺客": {
+            "type": ["精靈","刺客"],
+            "level": "blue"
+        },
+        "聖堂刺客": {
+            "type": ["精靈","刺客"],
+            "level": "purple"
+        },
+        "冥界亞龍": {
+            "type": ["龍","刺客"],
+            "level": "blue"
+        },
+        "沙王": {
+            "type": ["野獸","刺客"],
+            "level": "blue"
+        },
+        "賞金獵人": {
+            "type": ["地精","刺客"],
+            "level": "white"
+        },
+        "魚人夜行者": {
+            "type": ["娜迦","刺客"],
+            "level": "blue"
+        },
+        "痛苦女王": {
+            "type": ["惡魔","刺客"],
+            "level": "green"
+        },
+        "變體精靈": {
+            "type": ["元素","刺客"],
+            "level": "green"
+        },"敵法師": {
+            "type": ["精靈","惡魔獵手"],
+            "level": "white"
+        },
+        "靈魂守衛": {
+            "type": ["惡魔","惡魔獵手"],
+            "level": "purple"
+        },
+        "干擾者": {
+            "type": ["獸人","薩滿"],
+            "level": "purple"
+        },
+        "暗影薩滿": {
+            "type": ["巨魔","薩滿"],
+            "level": "white"
+        },
+        "先知": {
+            "type": ["精靈","德魯伊"],
+            "level": "green"
+        },
+        "樹精衛士": {
+            "type": ["精靈","德魯伊"],
+            "level": "green"
+        },
+        "利爪德魯伊": {
+            "type": ["野獸","德魯伊"],
+            "level": "purple"
+        },
+        "魅惑魔女": {
+            "type": ["野獸","德魯伊"],
+            "level": "white"
+        },
+        "發條技師": {
+            "type": ["地精","工匠"],
+            "level": "white"
+        },
+        "修補匠": {
+            "type": ["地精","工匠"],
+            "level": "white"
+        },
+        "伐木機": {
+            "type": ["地精","工匠"],
+            "level": "green"
+        },
+        "地精工程師": {
+            "type": ["地精","工匠"],
+            "level": "orange"
+        },
+        "矮人直升機": {
+            "type": ["矮人","工匠"],
+            "level": "orange"
+        },
+        "月之騎士": {
+            "type": ["精靈","騎士"],
+            "level": "green"
+        },
+        "全能騎士": {
+            "type": ["人類","騎士"],
+            "level": "blue"
+        },
+        "龍騎士": {
+            "type": ["龍","騎士","人類"],
+            "level": "purple"
+        },
+        "蝙蝠騎士": {
+            "type": ["巨魔","騎士"],
+            "level": "white"
+        },
+        "死亡騎士": {
+            "type": ["亡靈","騎士"],
+            "level": "blue"
+        },
+        "混沌騎士": {
+            "type": ["惡魔","騎士"],
+            "level": "green"
+        },
+        "風行者": {
+            "type": ["精靈","獵人"],
+            "level": "blue"
+        },
+        "獸王": {
+            "type": ["獸人","獵人"],
+            "level": "green"
+        },
+        "潮汐獵人": {
+            "type": ["娜迦","獵人"],
+            "level": "orange"
+        },
+        "蛇髮女妖": {
+            "type": ["娜迦","獵人"],
+            "level": "purple"
+        },
+        "卓爾遊俠": {
+            "type": ["亡靈","獵人"],
+            "level": "white"
+        },
+        "狙擊手": {
+            "type": ["矮人","獵人"],
+            "level": "blue"
+        },
+        "劇毒術士": {
+            "type": ["野獸","術士"],
+            "level": "blue"
+        },
+        "地精術士": {
+            "type": ["地精","術士"],
+            "level": "purple"
+        },
+        "巫醫": {
+            "type": ["巨魔","術士"],
+            "level": "green"
+        },
+        "死靈法師": {
+            "type": ["亡靈","術士"],
+            "level": "purple"
+        },
+        "影魔": {
+            "type": ["惡魔","術士"],
+            "level": "blue"
+        },
+        "謎團": {
+            "type": ["元素","術士"],
+            "level": "orange"
         }
     }
     var mainNode = document.getElementById("mainContainer");
