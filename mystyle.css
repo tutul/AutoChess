@@ -1,3 +1,45 @@
 .lineNode {
     display: flex;
+    align-items: center;
+ 	background: rgba(220, 223, 242, 1);
+ 	border-style: solid;
+    border-width: 1px;
+    border-color: teal;
+    padding: 5px;
+}
+.abilityNode {
+	width: 200px;
+	border-style: solid;
+    border-width: 1px;
+    border-color: teal;
+    margin: 5px;
+    padding: 3px;
+    border-radius: 5px;
+}
+.propertyNode {
+	border-style: solid;
+    border-width: 2px;
+    border-color: teal;
+    margin: 5px 15px;
+    padding: 10px;
+    border-radius: 5px;
+    width: 45px;
+    text-align: center;
+    font-size: 18px;
+}
+.roleContainer {
+    display: flex;
+    align-items: center
+}
+.roleNode {
+	border-style: outset;
+    border-width: 3px;
+    border-color: teal;
+    margin: 5px;
+    padding: 3px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.roleNode-active {
+	background: rgba(220, 104, 75, 0.6);
 }
