@@ -5,31 +5,37 @@
  	border-style: solid;
     border-width: 1px;
     border-color: teal;
-    padding: 5px;
+    padding: 1px;
+    font-size: 12px;
+}
+.abilityContainer {
+	order: 5;
 }
 .abilityNode {
 	width: 200px;
 	border-style: solid;
     border-width: 1px;
     border-color: teal;
-    margin: 5px;
-    padding: 3px;
+    /*margin: 5px;*/
+    /*padding: 3px;*/
     border-radius: 5px;
+    
 }
 .propertyNode {
 	border-style: solid;
     border-width: 2px;
     border-color: teal;
-    margin: 5px 15px;
-    padding: 10px;
+    margin: 1px 15px;
+    padding: 1px;
     border-radius: 5px;
     width: 45px;
     text-align: center;
-    font-size: 18px;
+    order: 1;
 }
 .roleContainer {
     display: flex;
-    align-items: center
+    align-items: center;
+    order: 3;
 }
 .roleNode {
 	border-style: outset;
@@ -42,4 +48,8 @@
 }
 .roleNode-active {
 	background: rgba(220, 104, 75, 0.6);
+}
+
+.display-None {
+	display: none;
 }

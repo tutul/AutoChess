@@ -319,17 +319,21 @@ function main() {
         var lineNode = document.createElement("div");
         lineNode.classList.add("lineNode");
         var abilityNode = document.createElement("div");
+        abilityNode.classList.add("abilityContainer");
         for(item in properties[property]) {
             var subNode = document.createElement("div");
             subNode.setAttribute('id', property+'_'+item);
             subNode.setAttribute('name', property);
             subNode.classList.add("abilityNode");
+            subNode.classList.add("display-None");
             subNode.innerHTML = '('+item+')'+properties[property][item];
             abilityNode.appendChild(subNode);
         }
+
         var propertyNode = document.createElement("div");
         propertyNode.classList.add("propertyNode");
         propertyNode.innerHTML = property;
+
         var roleNode = document.createElement("div");
         roleNode.setAttribute('id', property);
         roleNode.classList.add("roleContainer");
@@ -373,12 +377,14 @@ function main() {
                                 let ability = document.getElementById(propertyList[property]+'_'+i) || null;
                                 if(ability) {
                                     ability.classList.add("roleNode-active");
+                                    ability.classList.remove("display-None");
                                 }
                             }
 
                             for(let i = number+1 ; i <= 10; i++){
                                 let ability = document.getElementById(propertyList[property]+'_'+i) || null;
                                 if(ability) {
+                                    ability.classList.add("display-None");
                                     ability.classList.remove("roleNode-active");
                                 }
                             }
