@@ -22,6 +22,14 @@
     margin-left: 10px;
     font-weight: 900;
 }
+#record {
+	margin-left: 20px;
+    cursor: pointer;
+    border-style: outset;
+    border-width: 3px;
+    border-color: white;
+    background: rgba(0,0,20,0.5);
+}
 .lineNode {
     display: flex;
     align-items: center;
